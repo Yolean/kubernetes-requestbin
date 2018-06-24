@@ -4,6 +4,7 @@ metadata:
   name: requestbin
   namespace: requestbin
 spec:
+  type: NodePort
   selector:
     app: requestbin
   ports:
