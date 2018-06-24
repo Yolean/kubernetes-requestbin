@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+  namespace: requestbin
+spec:
+  selector:
+    app: redis
+  ports:
+  - port: 6379

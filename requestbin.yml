@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: requestbin
+  namespace: requestbin
+  labels:
+    app: requestbin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: requestbin
+  template:
+    metadata:
+      labels:
+        app: requestbin
+    spec:
+      containers:
+      - name: requestbin
+        image: crccheck/requestbin@sha256:a3dfaa2c2ace47cdcd2add65621e8ad343e5b58819878f6a42f80fd25e9321e5
+        ports:
+        - containerPort: 80
+        env:
+        - name: REDIS_URL
+          value: redis://redis:6379/0
